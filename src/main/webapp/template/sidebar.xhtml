@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head></h:head> 
+<body> 
+	<ui:composition>
+		<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+	id="accordionSidebar">
+
+	<!-- Sidebar - Brand -->
+	<a class="sidebar-brand d-flex align-items-center justify-content-center"
+		href="index.html">
+		<div class="sidebar-brand-icon rotate-n-15">
+			<i class="fas fa-users"></i>
+		</div>
+		<div class="sidebar-brand-text mx-3">
+			Recruiter
+		</div>
+	</a>
+
+	<!-- Divider -->
+	<hr class="sidebar-divider my-0"/>
+
+	<!-- Nav Item - Dashboard -->
+	<li class="nav-item active"><a class="nav-link" href="index.html">
+			<h:link value="" outcome="/views/dashboard" styleClass="nav-link">
+						<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+		 </h:link> 
+	</a></li>
+
+	<!-- Divider -->
+	<hr class="sidebar-divider"/>
+
+	<!-- Heading -->
+	<div class="sidebar-heading">Interface</div>
+
+	<!-- Nav Item - Pages Collapse Menu -->
+	<li class="nav-item">
+		 <h:link value="" outcome="/views/joborders" styleClass="nav-link">
+		 <i class="fas fa-suitcase text-white mr-2"></i><span>Job Orders</span>
+		 </h:link>
+	</li>
+
+	<li class="nav-item">
+			<h:link value=""
+					outcome="/views/candidates" styleClass="nav-link"><i class="fas fa-user-friends text-white mr-2"></i><span>Candidates</span></h:link>
+	</li>
+
+	<li class="nav-item">
+	<h:link value=""
+					outcome="/views/companys" styleClass="nav-link"><i class="fa fa-building text-white mr-2"></i><span>Companies</span></h:link>
+	</li>
+
+
+
+	<!-- Divider -->
+	<hr class="sidebar-divider"/>
+
+	<!-- Heading -->
+	<div class="sidebar-heading">Addons</div>
+
+	<li class="nav-item">
+		<h:link value=""
+					outcome="/views/recruiters" styleClass="nav-link"><i class="fas fa-user-cog text-white mr-2"></i><span>Recruiters</span></h:link>
+	</li>
+
+	<li class="nav-item">
+		<h:link value=""
+					outcome="/views/activities" styleClass="nav-link"><i class="fas fa-user-cog text-white mr-2"></i><span>Activities</span></h:link>
+	</li>
+
+	<!-- Divider -->
+	<hr class="sidebar-divider d-none d-md-block"/>
+
+	<!-- Sidebar Toggler (Sidebar) -->
+	<div class="text-center d-none d-md-inline">
+		<button class="rounded-circle border-0" id="sidebarToggle"></button>
+	</div>
+
+</ul>
+<!-- End of Sidebar -->
+	</ui:composition>
+</body> 
+</html>

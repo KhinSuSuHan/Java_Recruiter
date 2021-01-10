@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="subtitle">Dashboard View</ui:define>
+	<ui:define name="main_content">
+		<!-- Begin Page Content -->
+		<div class="container">
+			<!-- Content Row -->
+			<div class="row">
+			
+				
+				<div class="col-xl-7 col-lg-7">
+					<div class="card shadow mb-4">
+						<!-- Card Header - Dropdown -->
+						<div
+							class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+							<h6 class="m-0 font-weight-bold text-primary">Recent Hires</h6>
+
+						</div>
+						<!-- Card Body -->
+						<div class="card-body">
+							<div class="row">
+								<div class="table-responsive">
+							<h:dataTable styleClass=" table"
+								value="#{jobPipelineBean.jobPipelineRecentHireList}" var="j" >
+								<h:column>
+									<f:facet name="header">Name </f:facet>
+									<h:link value="#{j.candidate.name }"  outcome="/views/detail_candidate">
+											<f:param name="candidateid" value="#{j.candidate.id}"></f:param>
+									</h:link>
+								</h:column>
+								<h:column>
+									<f:facet name="header">Company</f:facet>
+									<h:link value="#{ j.joborder.company.name }" outcome="/views/detail_company">
+											<f:param name="companyid" value="#{j.joborder.company.id}"></f:param>
+									</h:link>
+									
+								</h:column>
+								<h:column>
+									<f:facet name="header">Recruiter</f:facet>
+									#{j.modifyBy.name}
+									
+								</h:column>
+								<h:column>
+									<f:facet name="header">Date</f:facet>
+									#{ j.modify_date.toLocalDate() }
+								</h:column>
+								
+									
+							</h:dataTable>
+
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-5 col-lg-5">
+					<div class="card shadow mb-4">
+						<!-- Card Header - Dropdown -->
+						<div
+							class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+							<h6 class="m-0 font-weight-bold text-primary">Hiring Overview</h6>
+
+						</div>
+						<!-- Card Body -->
+						<div class="card-body">
+							<div class="row">
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="col-xl-12 col-lg-12 ">
+				<div class="card shadow mb-4">
+					<!-- Card Header - Dropdown -->
+					<div
+						class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+						<h6 class="m-0 font-weight-bold text-primary">Important Candidates(Interview Request, Interviewing and Offered in Active Job Orders)</h6>
+
+					</div>
+					<!-- Card Body -->
+					<div class="card-body">
+						<div class="row">
+							<div class="container ">
+								<div class="row pt-3">
+									<div class="table-responsive">
+										<h:dataTable styleClass=" table table-striped table-bordered"
+											value="#{jobPipelineBean.jobPipelinePrcessActiveJobOrderList}" var="j" >
+											<h:column>
+												<f:facet name="header">Name </f:facet>
+													<h:link value="#{j.candidate.name }"  outcome="/views/detail_candidate">
+														<f:param name="candidateid" value="#{j.candidate.id}"></f:param>
+													</h:link>
+												
+											</h:column>
+											<h:column>
+												<f:facet name="header">Status</f:facet>
+												#{j.candidatejoborderstatus.short_description }
+
+											</h:column>
+											
+											<h:column>
+												<f:facet name="header">Position</f:facet>
+												<h:link value="#{ j.joborder.job_position }"
+													outcome="/views/detail_joborder">
+													<f:param name="joborderid" value="#{j.joborder.id}"></f:param>
+												</h:link>
+											</h:column>
+											
+											<h:column>
+												<f:facet name="header">Company</f:facet>
+												<h:link value="#{ j.joborder.company.name }" outcome="/views/detail_company">
+														<f:param name="companyid" value="#{j.joborder.company.id}"></f:param>
+												</h:link>
+												
+											</h:column>
+											
+
+											<h:column>
+												<f:facet name="header">Modified</f:facet>
+												#{ j.modify_date.toLocalDate() }
+											</h:column>
+											
+										</h:dataTable>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+
+		</div>
+		<!-- /.container-fluid -->
+
+	</ui:define>
+	
+</ui:composition>
+</html>
